@@ -1,0 +1,10 @@
+.env
+.env.*
+!.env.example
+*.lic
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+data/raw/*
+!data/raw/.gitkeep
+outputs/
