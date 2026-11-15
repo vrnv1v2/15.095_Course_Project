@@ -1,4 +1,4 @@
-# ML Biodegradability Pilot
+# ML Biodegradability Project
 
 MIT 15.095 project on interpretable biodegradability screening with Optimal Classification Trees.
 
