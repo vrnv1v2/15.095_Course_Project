@@ -272,12 +272,13 @@ descriptors within each fold.}
   \item \textbf{Slightly optimistic estimates.} The fixed descriptor lists were chosen on all 844
         development chemicals, flattering every model that uses them equally; the flexible models
         were tuned over small grids, so the true ceiling may be slightly higher.
-  \item \textbf{The additive model's descriptor choice is not proven optimal.} The optimization's
-        lower bound converges slowly, so each search stops after 50 cutting planes and finishes with
-        a local search; only the final $k=3$ choice is proven optimal, and the other searches have
-        a median remaining gap of 20\%. Its choices vary between folds at $k=3$ and 10 (they are
-        stable at $k=5$), and its advantage at $k=3$ may come from its descriptors rather than its
-        form, since it does not use the fixed lists.
+  \item \textbf{The additive model's descriptor choice is proven optimal only at $k=3$.} The
+        optimization's lower bound converges slowly, so each search stops after 50 cutting planes and
+        finishes with a local search. At $k=3$ every search closed the gap and all five folds chose
+        the same three descriptors; at $k=5$ and 10 the searches stop about 16\% and 8\% short of a
+        proof, and the choices vary between folds (three of five folds match the final choice at
+        $k=5$). Its advantage at $k=3$ may also come from its descriptors rather than its form,
+        since it does not use the fixed lists.
 \end{itemize}
 
 \end{document}

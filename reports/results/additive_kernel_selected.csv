@@ -1,0 +1,25 @@
+set,fold,descriptors
+k3,1,SpMax_L | SpPosA_B(p) | nN
+k3,2,SpMax_L | SpPosA_B(p) | nN
+k3,3,SpMax_L | SpPosA_B(p) | nN
+k3,4,SpMax_L | SpPosA_B(p) | nN
+k3,5,SpMax_L | SpPosA_B(p) | nN
+k3,final (all 844),SpMax_L | SpPosA_B(p) | nN
+k5,1,SpMax_L | nHM | nO | SdssC | nN
+k5,2,SpMax_L | nHM | nO | SdssC | nN
+k5,3,SpMax_L | SdssC | SpPosA_B(p) | nN | nX
+k5,4,SpMax_L | nHM | nO | C-026 | nN
+k5,5,SpMax_L | nHM | nO | SdssC | nN
+k5,final (all 844),SpMax_L | nHM | nO | SdssC | nN
+k10,1,SpMax_L | J_Dz(e) | nHM | NssssC | nCb- | nO | SdssC | nCrt | nN | SM6_B(m)
+k10,2,SpMax_L | J_Dz(e) | nHM | nCb- | nO | SdssC | nArNO2 | TI2_L | Psi_i_A | nN
+k10,3,SpMax_L | J_Dz(e) | nHM | nCb- | nCp | nO | SdssC | HyWi_B(m) | LOC | nN
+k10,4,SpMax_L | J_Dz(e) | nHM | NssssC | nCb- | nO | nCrt | C-026 | Psi_i_A | nN
+k10,5,SpMax_L | J_Dz(e) | nHM | NssssC | nCb- | nO | SdssC | HyWi_B(m) | nArNO2 | nN
+k10,final (all 844),SpMax_L | J_Dz(e) | nHM | NssssC | nCb- | nO | nArNO2 | nCrt | Psi_i_A | nN
+all,1,SpMax_L | J_Dz(e) | nHM | F01[N-N] | F04[C-N] | NssssC | nCb- | C% | nCp | nO | F03[C-N] | SdssC | HyWi_B(m) | LOC | SM6_L | F03[C-O] | Me | Mi | nN-N | nArNO2 | nCRX3 | SpPosA_B(p) | nCIR | B01[C-Br] | B03[C-Cl] | N-073 | SpMax_A | Psi_i_1d | B04[C-Br] | SdO | TI2_L | nCrt | C-026 | F02[C-N] | nHDon | SpMax_B(m) | Psi_i_A | nN | SM6_B(m) | nArCOOR | nX
+all,2,SpMax_L | J_Dz(e) | nHM | F01[N-N] | F04[C-N] | NssssC | nCb- | C% | nCp | nO | F03[C-N] | SdssC | HyWi_B(m) | LOC | SM6_L | F03[C-O] | Me | Mi | nN-N | nArNO2 | nCRX3 | SpPosA_B(p) | nCIR | B01[C-Br] | B03[C-Cl] | N-073 | SpMax_A | Psi_i_1d | B04[C-Br] | SdO | TI2_L | nCrt | C-026 | F02[C-N] | nHDon | SpMax_B(m) | Psi_i_A | nN | SM6_B(m) | nArCOOR | nX
+all,3,SpMax_L | J_Dz(e) | nHM | F01[N-N] | F04[C-N] | NssssC | nCb- | C% | nCp | nO | F03[C-N] | SdssC | HyWi_B(m) | LOC | SM6_L | F03[C-O] | Me | Mi | nN-N | nArNO2 | nCRX3 | SpPosA_B(p) | nCIR | B01[C-Br] | B03[C-Cl] | N-073 | SpMax_A | Psi_i_1d | B04[C-Br] | SdO | TI2_L | nCrt | C-026 | F02[C-N] | nHDon | SpMax_B(m) | Psi_i_A | nN | SM6_B(m) | nArCOOR | nX
+all,4,SpMax_L | J_Dz(e) | nHM | F01[N-N] | F04[C-N] | NssssC | nCb- | C% | nCp | nO | F03[C-N] | SdssC | HyWi_B(m) | LOC | SM6_L | F03[C-O] | Me | Mi | nN-N | nArNO2 | nCRX3 | SpPosA_B(p) | nCIR | B01[C-Br] | B03[C-Cl] | N-073 | SpMax_A | Psi_i_1d | B04[C-Br] | SdO | TI2_L | nCrt | C-026 | F02[C-N] | nHDon | SpMax_B(m) | Psi_i_A | nN | SM6_B(m) | nArCOOR | nX
+all,5,SpMax_L | J_Dz(e) | nHM | F01[N-N] | F04[C-N] | NssssC | nCb- | C% | nCp | nO | F03[C-N] | SdssC | HyWi_B(m) | LOC | SM6_L | F03[C-O] | Me | Mi | nN-N | nArNO2 | nCRX3 | SpPosA_B(p) | nCIR | B01[C-Br] | B03[C-Cl] | N-073 | SpMax_A | Psi_i_1d | B04[C-Br] | SdO | TI2_L | nCrt | C-026 | F02[C-N] | nHDon | SpMax_B(m) | Psi_i_A | nN | SM6_B(m) | nArCOOR | nX
+all,final (all 844),SpMax_L | J_Dz(e) | nHM | F01[N-N] | F04[C-N] | NssssC | nCb- | C% | nCp | nO | F03[C-N] | SdssC | HyWi_B(m) | LOC | SM6_L | F03[C-O] | Me | Mi | nN-N | nArNO2 | nCRX3 | SpPosA_B(p) | nCIR | B01[C-Br] | B03[C-Cl] | N-073 | SpMax_A | Psi_i_1d | B04[C-Br] | SdO | TI2_L | nCrt | C-026 | F02[C-N] | nHDon | SpMax_B(m) | Psi_i_A | nN | SM6_B(m) | nArCOOR | nX
