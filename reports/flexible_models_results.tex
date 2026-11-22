@@ -1,0 +1,139 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{enumitem}
+\setlist[itemize]{itemsep=3pt, topsep=4pt}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\pagestyle{plain}
+
+\title{How Much Does Interpretability Cost?\\[2pt] \large Benchmarking Readable Models Against Flexible Ones}
+\author{\todo{Team names}}
+\date{\todo{Date}}
+
+\begin{document}
+\maketitle
+
+\section*{The question}
+
+Our first comparison set readable trees (OCT and CART) against ridge logistic regression. To say how
+much interpretability \emph{costs}, we also need to know how well \emph{any} model can do with the
+same descriptors. This part adds that reference point with three flexible models that make no
+attempt to be readable: a \textbf{random forest}, \textbf{XGBoost}, and \textbf{Gaussian-kernel
+logistic regression}. It also adds two models that try to close part of the gap while staying
+checkable: \textbf{OCT-H}, an optimal tree whose splits may combine several descriptors in a
+weighted sum, and a \textbf{sparse additive kernel model}, which predicts from a sum of one smooth
+curve per descriptor and chooses at most $k$ descriptors itself by mixed-integer optimization.
+
+\section*{How the models were compared}
+
+Everything matches the first comparison, so all eight models can be read side by side: the same
+844 development chemicals, the same stratified 5-fold cross-validation (re-running the ridge
+logistic regression on our folds reproduced its earlier results exactly), the same 3-, 5- and
+10-descriptor lists plus all 41, settings chosen by mean cross-validated AUC, and both decision
+thresholds set on out-of-fold predictions. The one exception is the additive kernel model, which
+ignores the fixed lists and picks its own $k$ descriptors inside every fold, so the held-out
+chemicals never influence its choice. The 211 test chemicals have not been used.
+
+\section*{What the results show}
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{l cccc c cccc}
+\toprule
+ & \multicolumn{4}{c}{Cross-validated AUC} & & \multicolumn{4}{c}{RB chemicals cleared (of 285)} \\
+\cmidrule{2-5} \cmidrule{7-10}
+Model & $k=3$ & $k=5$ & $k=10$ & all 41 & & $k=3$ & $k=5$ & $k=10$ & all 41 \\
+\midrule
+Random forest        & 0.855 & \textbf{0.917} & \textbf{0.932} & 0.942 & & 157 & 216 & 216 & 233 \\
+XGBoost              & 0.851 & 0.915 & 0.924 & 0.941 & & 148 & \textbf{217} & 218 & 232 \\
+Kernel logistic      & 0.849 & 0.910 & 0.929 & \textbf{0.943} & & 156 & 209 & 221 & \textbf{239} \\
+\midrule
+Additive kernel$^\dagger$ & \textbf{0.878} & 0.904 & 0.919 & 0.936 & & \textbf{184} & 208 & 217 & 226 \\
+Ridge logistic       & 0.830 & 0.881 & 0.910 & 0.931 & & 157 & 179 & \textbf{223} & 226 \\
+OCT-H                & 0.806 & 0.866 & 0.866 & 0.875 & & 125 & 210 & 210 & 219 \\
+OCT                  & 0.792 & 0.842 & 0.830 & 0.834 & & 126 & 167 & 190 & 149 \\
+CART                 & 0.819 & 0.809 & 0.823 & 0.828 & & 105 & 175 & 177 & 186 \\
+\bottomrule
+\end{tabular}
+\caption*{\footnotesize Out-of-fold results on 844 development chemicals; best per column in bold.
+``RB cleared'': readily biodegradable chemicals correctly spared a lab test when each model is set
+to catch at least 90\% of non-biodegradable ones (higher means fewer unnecessary tests).
+Fold-to-fold spread in AUC is about $\pm 0.01$--$0.03$. $^\dagger$Chooses its own $k$ descriptors
+within each fold instead of using the fixed lists.}
+\end{table}
+
+\begin{itemize}
+  \item \textbf{The flexible models agree on a ceiling.} Three very different methods land within
+        about one fold-to-fold spread of each other at every budget (AUC about 0.85, 0.92, 0.93 and
+        0.94), so this is a fair estimate of how much the descriptors can predict.
+  \item \textbf{Logistic regression is close to the ceiling when many descriptors are allowed.} It
+        trails by 0.012 AUC with all 41 and 0.022 at $k=10$, but by 0.036 at $k=5$.
+  \item \textbf{The cost of a readable tree grows with the budget.} Measured against the ceiling, the
+        OCT is 0.06 AUC behind at $k=3$, 0.08 at $k=5$ and about 0.10--0.11 at $k=10$ and all 41,
+        confirming the first comparison's finding against the best achievable model.
+  \item \textbf{Hyperplane splits recover about a third of that gap.} OCT-H beats the OCT at every
+        budget, by 0.02--0.04 AUC from $k=5$ upward.
+  \item \textbf{At five descriptors, OCT-H nearly matches the flexible models for screening.} Set to
+        catch 90\% of persistent chemicals, it clears 210 of 285 biodegradable chemicals, against
+        209--217 for the flexible models, 179 for logistic regression and 167 for the OCT. The tree
+        has 7 leaves, and each split is a weighted sum of the same five descriptors.
+  \item \textbf{With three descriptors, no tree helps.} On the fixed list, logistic regression
+        matches the best flexible model at the cautious threshold (157 cleared); OCT-H and OCT
+        clear only about 125.
+  \item \textbf{At three descriptors, which descriptors are used matters most.} The additive kernel
+        model picks SpMax\_L, SpPosA\_B(p) and nN (the fixed list has LOC instead of nN) and is the
+        best model at $k=3$: AUC 0.878 and 184 chemicals cleared, 27 more than any model on the
+        fixed list. The fixed lists were chosen by a linear fit, which may not suit nonlinear
+        models at small budgets. At $k=5$ and 10 it trails the flexible models by about one
+        fold-to-fold spread, and with all 41 descriptors it is 0.007 below the full kernel model,
+        which is the price of having no interactions between descriptors.
+  \item \textbf{Hyperplane trees lose readability quickly.} With all 41 descriptors available, OCT-H
+        has only 4 leaves but its splits use 26 descriptors, so it cannot be checked by hand.
+\end{itemize}
+
+\section*{What the results let people do}
+
+\begin{itemize}
+  \item \textbf{Judge interpretability against the right baseline.} The gap to the flexible-model
+        ceiling is the real price of readability; the table gives it in AUC and in extra lab tests.
+  \item \textbf{Pick the readable model that fits the budget.}
+        \begin{itemize}[itemsep=1pt]
+          \item \emph{3 descriptors:} the additive kernel model, which can be read as three curves,
+                one per descriptor; among models on the fixed list, logistic regression, which
+                loses nothing at the cautious threshold.
+          \item \emph{5 descriptors:} OCT-H, if a tree-shaped rule is wanted and a short calculation
+                at each split is acceptable; it costs at most 7 extra tests against the best flexible
+                model. Requiring single-descriptor splits (OCT or CART) costs about 40--50 more.
+          \item \emph{10 or more descriptors:} logistic regression, within 0.01--0.02 AUC of the
+                ceiling and still transparent; trees fall well behind.
+        \end{itemize}
+  \item \textbf{Know what dropping interpretability buys.} With all 41 descriptors, kernel logistic
+        regression clears 239 biodegradable chemicals at the cautious threshold against 226 for
+        logistic regression: 13 fewer unnecessary tests out of 285.
+\end{itemize}
+
+\section*{Limits of the contribution}
+
+\begin{itemize}
+  \item \textbf{Cross-validation only.} The test set is held back until settings are frozen.
+  \item \textbf{Small differences are not reliable.} AUC gaps below about 0.02 are within
+        fold-to-fold spread, and the cleared counts have no error bars.
+  \item \textbf{Slightly optimistic estimates.} The sparse descriptor lists were chosen on all 844
+        development chemicals, flattering every model equally at those budgets; the flexible models
+        were tuned over small grids, so the true ceiling may be slightly higher.
+  \item \textbf{The additive model's descriptor choice is not proven optimal.} The optimization's
+        lower bound converges slowly, so each search stops after 50 cutting planes and finishes with
+        a local search; only the final $k=3$ choice is proven optimal, and the other searches have
+        a median remaining gap of 20\%. Its choices also vary between folds at $k=3$ and 10 (they
+        are stable at $k=5$), and its $k=3$ setting lies at the edge of the tuning grid, where all
+        settings scored within one fold-to-fold spread.
+  \item \textbf{Different descriptor lists.} The additive model's advantage at $k=3$ may come from
+        its descriptors rather than its form; its choice is made inside each fold, while the fixed
+        lists used all development chemicals.
+\end{itemize}
+
+\end{document}
