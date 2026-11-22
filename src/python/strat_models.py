@@ -1,4 +1,5 @@
-"""Random forest, XGBoost, and Gaussian-kernel logistic regression on the stratified split.
+"""Random forest, XGBoost, Gaussian-kernel logistic regression, and Nadaraya–Watson kernel
+regression on the stratified split.
 
 Follows MLProjectPart1_Orig.ipynb's protocol so these rows can sit next to its CART / OCT /
 logistic rows:
@@ -12,7 +13,7 @@ logistic rows:
   * the test set is scored only with --run-test
 
 Usage (from the repo root):
-    python3 src/python/strat_models.py [--models rf xgb klr] [--run-test]
+    python3 src/python/strat_models.py [--models rf xgb klr nw] [--run-test]
 
 Outputs per model in outputs/strat/<model>/: cv_results.csv (notebook columns), cv_grid.csv
 (every setting's CV AUC), oof_predictions.csv, and with --run-test: test_results.csv and
@@ -148,12 +149,44 @@ def predict_klr(m, X):
     return 1.0 / (1.0 + np.exp(-eta))
 
 
+# ---------------------------------------------------------------- Nadaraya–Watson kernel regression
+#
+# The NRB score of x is the kernel-weighted average of the training labels,
+#
+#     m(x) = Σ_i K(x, x_i) y_i / Σ_i K(x, x_i),     K(x, x') = exp(-γ ‖z − z'‖²),
+#
+# on descriptors standardized with the training part's means / std devs, with γ = g / (number of
+# descriptors). Nothing is fitted; the only setting is the bandwidth g. Weights are computed in
+# log space (softmax over −γ‖z − z_i‖²) so narrow bandwidths don't underflow to 0/0.
+
+NW_GRID = expand({
+    "g": [0.03, 0.1, 0.3, 1.0, 3.0, 10.0, 30.0, 100.0],   # γ = g / n_descriptors
+})
+
+
+def fit_nw(X, y, prm):
+    Xm = X.to_numpy(float)
+    mu = Xm.mean(0)
+    sd = np.maximum(Xm.std(0, ddof=1), 1e-12)
+    return dict(Z=(Xm - mu) / sd, y=y.astype(float), mu=mu, sd=sd, gamma=prm["g"] / Xm.shape[1])
+
+
+def predict_nw(m, X):
+    Zn = (X.to_numpy(float) - m["mu"]) / m["sd"]
+    sq = (Zn ** 2).sum(1)[:, None] + (m["Z"] ** 2).sum(1)[None, :] - 2 * Zn @ m["Z"].T
+    logw = -m["gamma"] * np.maximum(sq, 0.0)
+    logw -= logw.max(1, keepdims=True)
+    w = np.exp(logw)
+    return (w @ m["y"]) / w.sum(1)
+
+
 # ---------------------------------------------------------------- driver
 
 MODELS = {
     "rf": ("Random forest", "random_forest", RF_GRID, fit_rf, predict_rf),
     "xgb": ("XGBoost", "xgboost", XGB_GRID, fit_xgb, predict_xgb),
     "klr": ("Kernel logistic", "kernel_logistic", KLR_GRID, fit_klr, predict_klr),
+    "nw": ("Nadaraya-Watson", "nadaraya_watson", NW_GRID, fit_nw, predict_nw),
 }
 
 
