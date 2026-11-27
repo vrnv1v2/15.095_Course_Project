@@ -1,0 +1,50 @@
+set,model,group,settings,leaves,descriptors_used,cv_auc,thr_bal,thr_nrbfirst,descriptors
+reg_k3,OCT,readable,"max_depth=4, minbucket=20, cp=0.00658",9,3,0.8233194190431032,0.7333333333333333,0.26744186046511625,SpMax_L; LOC; SpPosA_B(p)
+reg_k3,OCT-H,readable,"max_depth=3, minbucket=5, cp=0.00125",7,3,0.8293776389171127,0.7333333333333333,0.22404371584699453,SpMax_L; LOC; SpPosA_B(p)
+reg_k3,CART,readable,"max_depth=4, minbucket=20, cp=0.00987",6,3,0.8354124331098015,0.7,0.2647058823529412,SpMax_L; LOC; SpPosA_B(p)
+reg_k3,Logistic,readable,lambda=0.001,,3,0.852251970015128,0.6919770177450572,0.512773829048791,SpMax_L; LOC; SpPosA_B(p)
+reg_k3,Random forest,flexible,"max_depth=6, minbucket=1",,3,0.8781501896633476,0.5927230148883522,0.45308048669339746,SpMax_L; LOC; SpPosA_B(p)
+reg_k3,XGBoost,flexible,"max_depth=2, eta=0.05",,3,0.8800619228250808,0.6470462679862976,0.4451599717140198,SpMax_L; LOC; SpPosA_B(p)
+reg_k3,Kernel regression (Nadaraya-Watson),flexible,g=10.0,,3,0.8719078100657048,0.6206908214031946,0.49259642572806295,SpMax_L; LOC; SpPosA_B(p)
+log_k3,OCT,readable,"max_depth=4, minbucket=20, cp=0.011",6,3,0.844167146469778,0.7916666666666666,0.3181818181818182,SpMax_L; nHM; nN
+log_k3,OCT-H,readable,"max_depth=4, minbucket=10, cp=0.00197",6,3,0.8207393483709273,0.7857142857142857,0.22580645161290322,SpMax_L; nHM; nN
+log_k3,CART,readable,"max_depth=4, minbucket=20, cp=0.011",8,3,0.8409298866535708,0.7833333333333333,0.38571428571428573,SpMax_L; nHM; nN
+log_k3,Logistic,readable,lambda=10.0,,3,0.8574777314908892,0.6750677348563511,0.4782939975372078,SpMax_L; nHM; nN
+log_k3,Random forest,flexible,"max_depth=6, minbucket=1",,3,0.8936397864029443,0.7211039128612006,0.5233050458456935,SpMax_L; nHM; nN
+log_k3,XGBoost,flexible,"max_depth=4, eta=0.05",,3,0.8897971279550226,0.5794017314910889,0.45346760749816895,SpMax_L; nHM; nN
+log_k3,Kernel regression (Nadaraya-Watson),flexible,g=10.0,,3,0.8826329619092776,0.5809884121364566,0.4987333418509336,SpMax_L; nHM; nN
+reg_k5,OCT,readable,"max_depth=4, minbucket=20, cp=0.00731",9,4,0.8453000462868884,0.7368421052631579,0.34782608695652173,SpMax_L; nO; LOC; nN; SM6_B(m)
+reg_k5,OCT-H,readable,"max_depth=4, minbucket=20, cp=0.00384",4,5,0.8484416277179434,0.7804878048780488,0.26666666666666666,SpMax_L; nO; LOC; nN; SM6_B(m)
+reg_k5,CART,readable,"max_depth=4, minbucket=20, cp=0.011",5,3,0.8279215775926302,0.7692307692307693,0.3924050632911392,SpMax_L; nO; LOC; nN; SM6_B(m)
+reg_k5,Logistic,readable,lambda=10.0,,5,0.8694040845356634,0.713565567244422,0.4803057898120128,SpMax_L; nO; LOC; nN; SM6_B(m)
+reg_k5,Random forest,flexible,"max_depth=10, minbucket=1",,5,0.9051031294452347,0.5983841747342807,0.5366481042349462,SpMax_L; nO; LOC; nN; SM6_B(m)
+reg_k5,XGBoost,flexible,"max_depth=4, eta=0.05",,5,0.9001985538169748,0.8507805466651917,0.4717051088809967,SpMax_L; nO; LOC; nN; SM6_B(m)
+reg_k5,Kernel regression (Nadaraya-Watson),flexible,g=10.0,,5,0.8877822371243426,0.5703509212895551,0.5098585001472311,SpMax_L; nO; LOC; nN; SM6_B(m)
+log_k5,OCT,readable,"max_depth=4, minbucket=20, cp=0.00658",8,4,0.8297576712050395,0.6,0.21301775147928995,SpMax_L; nHM; nO; nN; SM6_B(m)
+log_k5,OCT-H,readable,"max_depth=4, minbucket=20, cp=0.0011",8,5,0.8505238321027795,0.7884615384615384,0.22388059701492538,SpMax_L; nHM; nO; nN; SM6_B(m)
+log_k5,CART,readable,"max_depth=4, minbucket=5, cp=0.0121",5,3,0.8145858734674525,0.7741935483870968,0.3333333333333333,SpMax_L; nHM; nO; nN; SM6_B(m)
+log_k5,Logistic,readable,lambda=0.001,,5,0.8813408803540383,0.5318787425058105,0.480770982743949,SpMax_L; nHM; nO; nN; SM6_B(m)
+log_k5,Random forest,flexible,"max_depth=10, minbucket=5",,5,0.9109838221680328,0.5436998424051506,0.537556725579564,SpMax_L; nHM; nO; nN; SM6_B(m)
+log_k5,XGBoost,flexible,"max_depth=4, eta=0.05",,5,0.8999171634040055,0.572737455368042,0.48163729906082153,SpMax_L; nHM; nO; nN; SM6_B(m)
+log_k5,Kernel regression (Nadaraya-Watson),flexible,g=30.0,,5,0.8958156935130621,0.6774435980826163,0.44966982529797245,SpMax_L; nHM; nO; nN; SM6_B(m)
+reg_k10,OCT,readable,"max_depth=4, minbucket=20, cp=0.00877",8,5,0.8045380907223011,0.7126436781609196,0.25,SpMax_L; C%; nO; HyWi_B(m); LOC; F03[C-O]; nArNO2; SpPosA_B(p); nN; nArCOOR
+reg_k10,OCT-H,readable,"max_depth=3, minbucket=20, cp=0.00335",5,10,0.8383103027839869,0.5,0.20689655172413793,SpMax_L; C%; nO; HyWi_B(m); LOC; F03[C-O]; nArNO2; SpPosA_B(p); nN; nArCOOR
+reg_k10,CART,readable,"max_depth=3, minbucket=10, cp=0.00219",7,5,0.8222813508997721,0.7164179104477612,0.4230769230769231,SpMax_L; C%; nO; HyWi_B(m); LOC; F03[C-O]; nArNO2; SpPosA_B(p); nN; nArCOOR
+reg_k10,Logistic,readable,lambda=0.001,,10,0.8980133328817539,0.4772456368373013,0.48124395011903537,SpMax_L; C%; nO; HyWi_B(m); LOC; F03[C-O]; nArNO2; SpPosA_B(p); nN; nArCOOR
+reg_k10,Random forest,flexible,"max_depth=10, minbucket=1",,10,0.9220743299690668,0.6694121462732966,0.55859113521173,SpMax_L; C%; nO; HyWi_B(m); LOC; F03[C-O]; nArNO2; SpPosA_B(p); nN; nArCOOR
+reg_k10,XGBoost,flexible,"max_depth=6, eta=0.05",,10,0.9202205965363861,0.6992121934890747,0.5895383358001709,SpMax_L; C%; nO; HyWi_B(m); LOC; F03[C-O]; nArNO2; SpPosA_B(p); nN; nArCOOR
+reg_k10,Kernel regression (Nadaraya-Watson),flexible,g=30.0,,10,0.9109270925060399,0.6256301685562715,0.4650239769941116,SpMax_L; C%; nO; HyWi_B(m); LOC; F03[C-O]; nArNO2; SpPosA_B(p); nN; nArCOOR
+log_k10,OCT,readable,"max_depth=4, minbucket=10, cp=0.00439",12,7,0.8262654101469892,0.7368421052631579,0.23809523809523808,SpMax_L; nHM; NssssC; nO; LOC; nArNO2; Psi_i_A; nN; SM6_B(m); nArCOOR
+log_k10,OCT-H,readable,"max_depth=3, minbucket=20, cp=0.00094",6,9,0.8602684921763869,0.5,0.25,SpMax_L; nHM; NssssC; nO; LOC; nArNO2; Psi_i_A; nN; SM6_B(m); nArCOOR
+log_k10,CART,readable,"max_depth=4, minbucket=10, cp=0.00219",12,7,0.8320011741064374,0.7183098591549296,0.2786885245901639,SpMax_L; nHM; NssssC; nO; LOC; nArNO2; Psi_i_A; nN; SM6_B(m); nArCOOR
+log_k10,Logistic,readable,lambda=0.001,,10,0.911994795547427,0.6764879075163553,0.48930553537257515,SpMax_L; nHM; NssssC; nO; LOC; nArNO2; Psi_i_A; nN; SM6_B(m); nArCOOR
+log_k10,Random forest,flexible,"max_depth=10, minbucket=1",,10,0.9263900178373863,0.6657056841986235,0.5512873357748352,SpMax_L; nHM; NssssC; nO; LOC; nArNO2; Psi_i_A; nN; SM6_B(m); nArCOOR
+log_k10,XGBoost,flexible,"max_depth=6, eta=0.05",,10,0.9235030142924879,0.7202836275100708,0.5556132197380066,SpMax_L; nHM; NssssC; nO; LOC; nArNO2; Psi_i_A; nN; SM6_B(m); nArCOOR
+log_k10,Kernel regression (Nadaraya-Watson),flexible,g=10.0,,10,0.9120585811375286,0.5984425437944433,0.5276760028719345,SpMax_L; nHM; NssssC; nO; LOC; nArNO2; Psi_i_A; nN; SM6_B(m); nArCOOR
+all,OCT,readable,"max_depth=4, minbucket=20, cp=0.00658",9,8,0.8235020264625528,0.5,0.19696969696969696,SpMax_L; J_Dz(e); nHM; F01[N-N]; F04[C-N]; NssssC; nCb-; C%; nCp; nO; F03[C-N]; SdssC; HyWi_B(m); LOC; SM6_L; F03[C-O]; Me; Mi; nN-N; nArNO2; nCRX3; SpPosA_B(p); nCIR; B01[C-Br]; B03[C-Cl]; N-073; SpMax_A; Psi_i_1d; B04[C-Br]; SdO; TI2_L; nCrt; C-026; F02[C-N]; nHDon; SpMax_B(m); Psi_i_A; nN; SM6_B(m); nArCOOR; nX
+all,OCT-H,readable,"max_depth=3, minbucket=20, cp=0.0013",4,26,0.8557582018108334,0.8148148148148148,0.15384615384615385,SpMax_L; J_Dz(e); nHM; F01[N-N]; F04[C-N]; NssssC; nCb-; C%; nCp; nO; F03[C-N]; SdssC; HyWi_B(m); LOC; SM6_L; F03[C-O]; Me; Mi; nN-N; nArNO2; nCRX3; SpPosA_B(p); nCIR; B01[C-Br]; B03[C-Cl]; N-073; SpMax_A; Psi_i_1d; B04[C-Br]; SdO; TI2_L; nCrt; C-026; F02[C-N]; nHDon; SpMax_B(m); Psi_i_A; nN; SM6_B(m); nArCOOR; nX
+all,CART,readable,"max_depth=4, minbucket=20, cp=0.0121",7,6,0.8327481146560094,0.8271604938271605,0.2777777777777778,SpMax_L; J_Dz(e); nHM; F01[N-N]; F04[C-N]; NssssC; nCb-; C%; nCp; nO; F03[C-N]; SdssC; HyWi_B(m); LOC; SM6_L; F03[C-O]; Me; Mi; nN-N; nArNO2; nCRX3; SpPosA_B(p); nCIR; B01[C-Br]; B03[C-Cl]; N-073; SpMax_A; Psi_i_1d; B04[C-Br]; SdO; TI2_L; nCrt; C-026; F02[C-N]; nHDon; SpMax_B(m); Psi_i_A; nN; SM6_B(m); nArCOOR; nX
+all,Logistic,readable,lambda=1.0,,41,0.9311380929801981,0.5926270555977314,0.5157324695580153,SpMax_L; J_Dz(e); nHM; F01[N-N]; F04[C-N]; NssssC; nCb-; C%; nCp; nO; F03[C-N]; SdssC; HyWi_B(m); LOC; SM6_L; F03[C-O]; Me; Mi; nN-N; nArNO2; nCRX3; SpPosA_B(p); nCIR; B01[C-Br]; B03[C-Cl]; N-073; SpMax_A; Psi_i_1d; B04[C-Br]; SdO; TI2_L; nCrt; C-026; F02[C-N]; nHDon; SpMax_B(m); Psi_i_A; nN; SM6_B(m); nArCOOR; nX
+all,Random forest,flexible,"max_depth=10, minbucket=1",,41,0.9402797534376482,0.638478528395364,0.597235891345274,SpMax_L; J_Dz(e); nHM; F01[N-N]; F04[C-N]; NssssC; nCb-; C%; nCp; nO; F03[C-N]; SdssC; HyWi_B(m); LOC; SM6_L; F03[C-O]; Me; Mi; nN-N; nArNO2; nCRX3; SpPosA_B(p); nCIR; B01[C-Br]; B03[C-Cl]; N-073; SpMax_A; Psi_i_1d; B04[C-Br]; SdO; TI2_L; nCrt; C-026; F02[C-N]; nHDon; SpMax_B(m); Psi_i_A; nN; SM6_B(m); nArCOOR; nX
+all,XGBoost,flexible,"max_depth=6, eta=0.05",,41,0.9388984849511166,0.4064851403236389,0.6112962365150452,SpMax_L; J_Dz(e); nHM; F01[N-N]; F04[C-N]; NssssC; nCb-; C%; nCp; nO; F03[C-N]; SdssC; HyWi_B(m); LOC; SM6_L; F03[C-O]; Me; Mi; nN-N; nArNO2; nCRX3; SpPosA_B(p); nCIR; B01[C-Br]; B03[C-Cl]; N-073; SpMax_A; Psi_i_1d; B04[C-Br]; SdO; TI2_L; nCrt; C-026; F02[C-N]; nHDon; SpMax_B(m); Psi_i_A; nN; SM6_B(m); nArCOOR; nX
+all,Kernel regression (Nadaraya-Watson),flexible,g=10.0,,41,0.9130495156810946,0.5711911085549982,0.4845168319745947,SpMax_L; J_Dz(e); nHM; F01[N-N]; F04[C-N]; NssssC; nCb-; C%; nCp; nO; F03[C-N]; SdssC; HyWi_B(m); LOC; SM6_L; F03[C-O]; Me; Mi; nN-N; nArNO2; nCRX3; SpPosA_B(p); nCIR; B01[C-Br]; B03[C-Cl]; N-073; SpMax_A; Psi_i_1d; B04[C-Br]; SdO; TI2_L; nCrt; C-026; F02[C-N]; nHDon; SpMax_B(m); Psi_i_A; nN; SM6_B(m); nArCOOR; nX

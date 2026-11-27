@@ -1,0 +1,50 @@
+set,model,group,cv_auc,test_auc,test_bal_acc,nrb_caught,rb_cleared_bal,nrb_caught_nrbfirst,rb_cleared_nrbfirst
+reg_k3,OCT,readable,0.823,0.731,0.724,110,47,119,29
+reg_k3,OCT-H,readable,0.829,0.778,0.705,91,54,118,43
+reg_k3,CART,readable,0.835,0.761,0.748,105,53,140,0
+reg_k3,Logistic,readable,0.852,0.802,0.752,100,56,116,37
+reg_k3,Random forest,flexible,0.878,0.808,0.717,106,48,118,42
+reg_k3,XGBoost,flexible,0.88,0.794,0.727,103,51,119,42
+reg_k3,Kernel regression (Nadaraya-Watson),flexible,0.872,0.783,0.741,111,49,117,37
+log_k3,OCT,readable,0.844,0.819,0.748,101,55,122,50
+log_k3,OCT-H,readable,0.821,0.835,0.78,102,59,131,38
+log_k3,CART,readable,0.841,0.826,0.78,104,58,129,38
+log_k3,Logistic,readable,0.857,0.846,0.801,104,61,127,42
+log_k3,Random forest,flexible,0.894,0.842,0.787,106,58,117,54
+log_k3,XGBoost,flexible,0.89,0.856,0.809,122,53,126,49
+log_k3,Kernel regression (Nadaraya-Watson),flexible,0.883,0.836,0.777,111,54,117,50
+reg_k5,OCT,readable,0.845,0.783,0.77,121,48,121,48
+reg_k5,OCT-H,readable,0.848,0.845,0.802,124,51,127,51
+reg_k5,CART,readable,0.828,0.725,0.724,116,44,124,36
+reg_k5,Logistic,readable,0.869,0.857,0.801,106,60,125,44
+reg_k5,Random forest,flexible,0.905,0.898,0.805,119,54,123,53
+reg_k5,XGBoost,flexible,0.9,0.883,0.804,103,62,123,53
+reg_k5,Kernel regression (Nadaraya-Watson),flexible,0.888,0.843,0.781,122,49,126,48
+log_k5,OCT,readable,0.83,0.762,0.77,125,46,134,25
+log_k5,OCT-H,readable,0.851,0.853,0.819,119,56,124,52
+log_k5,CART,readable,0.815,0.725,0.724,116,44,124,36
+log_k5,Logistic,readable,0.881,0.866,0.802,126,50,127,49
+log_k5,Random forest,flexible,0.911,0.893,0.795,120,52,120,52
+log_k5,XGBoost,flexible,0.9,0.88,0.816,122,54,124,54
+log_k5,Kernel regression (Nadaraya-Watson),flexible,0.896,0.843,0.794,112,56,123,46
+reg_k10,OCT,readable,0.805,0.835,0.784,121,50,121,50
+reg_k10,OCT-H,readable,0.838,0.809,0.784,123,49,125,40
+reg_k10,CART,readable,0.822,0.745,0.731,112,47,129,37
+reg_k10,Logistic,readable,0.898,0.887,0.816,128,51,128,51
+reg_k10,Random forest,flexible,0.922,0.898,0.812,119,55,123,52
+reg_k10,XGBoost,flexible,0.92,0.889,0.798,121,52,123,51
+reg_k10,Kernel regression (Nadaraya-Watson),flexible,0.911,0.842,0.791,117,53,124,44
+log_k10,OCT,readable,0.826,0.859,0.795,128,48,130,45
+log_k10,OCT-H,readable,0.86,0.809,0.795,120,52,120,52
+log_k10,CART,readable,0.832,0.81,0.724,108,48,126,33
+log_k10,Logistic,readable,0.912,0.894,0.823,116,58,127,55
+log_k10,Random forest,flexible,0.926,0.909,0.84,117,60,124,56
+log_k10,XGBoost,flexible,0.924,0.892,0.862,123,60,126,54
+log_k10,Kernel regression (Nadaraya-Watson),flexible,0.912,0.878,0.841,121,58,126,52
+all,OCT,readable,0.824,0.805,0.777,115,52,115,52
+all,OCT-H,readable,0.856,0.83,0.795,126,49,126,49
+all,CART,readable,0.833,0.828,0.751,98,57,123,41
+all,Logistic,readable,0.931,0.914,0.837,122,57,125,57
+all,Random forest,flexible,0.94,0.914,0.848,121,59,121,58
+all,XGBoost,flexible,0.939,0.906,0.802,128,49,128,53
+all,Kernel regression (Nadaraya-Watson),flexible,0.913,0.895,0.844,118,60,123,56

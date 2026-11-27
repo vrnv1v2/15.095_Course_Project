@@ -1,0 +1,8 @@
+model,group,AUC k = 3,AUC k = 5,AUC k = 10,AUC all 41,BalAcc k = 3,BalAcc k = 5,BalAcc k = 10,BalAcc all 41
+OCT,readable,0.823,0.845,0.805,0.824,0.788,0.816,0.77,0.798
+OCT-H,readable,0.829,0.848,0.838,0.856,0.792,0.81,0.825,0.846
+CART,readable,0.835,0.828,0.822,0.833,0.795,0.79,0.769,0.801
+Logistic,readable,0.852,0.869,0.898,0.931,0.788,0.804,0.823,0.868
+Random forest,flexible,0.878,0.905,0.922,0.94,0.809,0.835,0.841,0.872
+XGBoost,flexible,0.88,0.9,0.92,0.939,0.803,0.819,0.844,0.858
+Kernel regression (Nadaraya-Watson),flexible,0.872,0.888,0.911,0.913,0.794,0.824,0.847,0.86
